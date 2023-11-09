@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:todoapp_riverpod/data/data.dart';
+import 'package:todoapp_riverpod/utils/task_categories.dart';
 import 'package:todoapp_riverpod/utils/utils.dart';
 import 'package:todoapp_riverpod/widgets/widgets.dart';
 
@@ -49,7 +51,24 @@ class HomeScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     const DisplayListOfTasks(
-                      tasks: [],
+                      tasks: [
+                        Task(
+                          title: 'title',
+                          note: 'note',
+                          time: 'time',
+                          date: 'date',
+                          isCompleted: false,
+                          category: TaskCategories.work,
+                        ),
+                        Task(
+                          title: 'title',
+                          note: 'note',
+                          time: 'time',
+                          date: 'date',
+                          isCompleted: false,
+                          category: TaskCategories.education,
+                        ),
+                      ],
                     ),
                     const Gap(20),
                     Text(
@@ -58,7 +77,24 @@ class HomeScreen extends StatelessWidget {
                     ),
                     const Gap(20),
                     const DisplayListOfTasks(
-                      tasks: [],
+                      tasks: [
+                        Task(
+                          title: 'title',
+                          note: 'note',
+                          time: 'time',
+                          date: 'date',
+                          isCompleted: false,
+                          category: TaskCategories.work,
+                        ),
+                        Task(
+                          title: 'title',
+                          note: 'note',
+                          time: 'time',
+                          date: 'date',
+                          isCompleted: false,
+                          category: TaskCategories.education,
+                        ),
+                      ],
                       isCompletedTasks: true,
                     ),
                     const Gap(20),
