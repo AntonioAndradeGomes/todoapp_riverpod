@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:todoapp_riverpod/utils/extensions.dart';
 import 'package:todoapp_riverpod/widgets/widgets.dart';
-
 import '../data/models/models.dart';
 
 class TaskDetails extends StatelessWidget {
