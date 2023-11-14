@@ -21,6 +21,18 @@ class CreateTaskScreen extends StatelessWidget {
           text: 'Add New Task',
         ),
       ),
+      body: SingleChildScrollView(
+        physics: const AlwaysScrollableScrollPhysics(),
+        padding: const EdgeInsets.all(20),
+        child: Column(
+          children: [
+            CommonTextField(
+              hintText: 'Task Title',
+              title: 'Task Title',
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
