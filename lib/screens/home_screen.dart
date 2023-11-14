@@ -83,7 +83,7 @@ class HomeScreen extends StatelessWidget {
                           note: 'note',
                           time: 'time',
                           date: 'date',
-                          isCompleted: false,
+                          isCompleted: true,
                           category: TaskCategories.work,
                         ),
                         Task(
@@ -91,7 +91,7 @@ class HomeScreen extends StatelessWidget {
                           note: 'note',
                           time: 'time',
                           date: 'date',
-                          isCompleted: false,
+                          isCompleted: true,
                           category: TaskCategories.education,
                         ),
                       ],
