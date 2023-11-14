@@ -6,11 +6,13 @@ class CommonTextField extends StatelessWidget {
   final String title;
   final String hintText;
   final TextEditingController? controller;
+  final int? maxLines;
   const CommonTextField({
     super.key,
     required this.title,
     required this.hintText,
     this.controller,
+    this.maxLines,
   });
 
   @override
@@ -25,6 +27,7 @@ class CommonTextField extends StatelessWidget {
         const Gap(10),
         TextField(
           controller: controller,
+          maxLines: maxLines,
           onTapOutside: (event) {
             FocusManager.instance.primaryFocus?.unfocus();
           },
