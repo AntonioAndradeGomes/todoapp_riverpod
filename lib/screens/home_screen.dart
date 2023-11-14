@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:todoapp_riverpod/data/data.dart';
-import 'package:todoapp_riverpod/utils/task_categories.dart';
 import 'package:todoapp_riverpod/utils/utils.dart';
 import 'package:todoapp_riverpod/widgets/widgets.dart';
 
@@ -80,7 +79,7 @@ class HomeScreen extends StatelessWidget {
                       tasks: [
                         Task(
                           title: 'title',
-                          note: 'note',
+                          note: '',
                           time: 'time',
                           date: 'date',
                           isCompleted: true,

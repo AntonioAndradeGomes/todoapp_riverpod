@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:todoapp_riverpod/data/data.dart';
 import 'package:todoapp_riverpod/utils/extensions.dart';
+import 'package:todoapp_riverpod/widgets/widgets.dart';
 
 class TaskTile extends StatelessWidget {
   final Task task;
@@ -28,21 +29,11 @@ class TaskTile extends StatelessWidget {
       ),
       child: Row(
         children: [
-          Container(
-            padding: const EdgeInsets.all(10),
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              color: task.category.color.withOpacity(backgroudOpacity),
-              border: Border.all(
-                width: 2,
-                color: task.category.color.withOpacity(iconOpacity),
-              ),
-            ),
-            child: Center(
-              child: Icon(
-                task.category.icon,
-                color: task.category.color.withOpacity(iconOpacity),
-              ),
+          CircleContainer(
+            color: task.category.color.withOpacity(backgroudOpacity),
+            child: Icon(
+              task.category.icon,
+              color: task.category.color.withOpacity(iconOpacity),
             ),
           ),
           const Gap(16),
