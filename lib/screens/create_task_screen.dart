@@ -22,35 +22,39 @@ class CreateTaskScreen extends StatelessWidget {
           text: 'Add New Task',
         ),
       ),
-      body: SingleChildScrollView(
-        physics: const AlwaysScrollableScrollPhysics(),
-        padding: const EdgeInsets.all(20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            const CommonTextField(
-              hintText: 'Title',
-              title: 'Task title',
-            ),
-            const Gap(16),
-            const SelectionDateTime(),
-            const Gap(16),
-            const CommonTextField(
-              hintText: 'Note',
-              title: 'Task note',
-              maxLines: 6,
-            ),
-            const Gap(60),
-            ElevatedButton(
-              onPressed: () {},
-              child: const Padding(
-                padding: EdgeInsets.all(8.0),
-                child: DisplayWhiteText(
-                  text: 'Save',
+      body: SafeArea(
+        child: SingleChildScrollView(
+          physics: const AlwaysScrollableScrollPhysics(),
+          padding: const EdgeInsets.all(20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              const CommonTextField(
+                hintText: 'Title',
+                title: 'Task title',
+              ),
+              const Gap(16),
+              const SelectCategory(),
+              const Gap(16),
+              const SelectionDateTime(),
+              const Gap(16),
+              const CommonTextField(
+                hintText: 'Note',
+                title: 'Task note',
+                maxLines: 6,
+              ),
+              const Gap(50),
+              ElevatedButton(
+                onPressed: () {},
+                child: const Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: DisplayWhiteText(
+                    text: 'Save',
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
