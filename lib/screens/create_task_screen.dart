@@ -22,7 +22,6 @@ class CreateTaskScreen extends StatelessWidget {
           text: 'Add New Task',
         ),
       ),
-      //16:00
       body: SingleChildScrollView(
         physics: const AlwaysScrollableScrollPhysics(),
         padding: const EdgeInsets.all(20),
@@ -33,31 +32,15 @@ class CreateTaskScreen extends StatelessWidget {
               hintText: 'Title',
               title: 'Task title',
             ),
-            const Gap(10),
-            const Row(
-              children: [
-                Expanded(
-                  child: CommonTextField(
-                    hintText: 'Date',
-                    title: 'Aug, 07',
-                  ),
-                ),
-                Gap(10),
-                Expanded(
-                  child: CommonTextField(
-                    hintText: 'Time',
-                    title: '10:30',
-                  ),
-                ),
-              ],
-            ),
-            const Gap(10),
+            const Gap(16),
+            const SelectionDateTime(),
+            const Gap(16),
             const CommonTextField(
               hintText: 'Note',
               title: 'Task note',
               maxLines: 6,
             ),
-            const Gap(10),
+            const Gap(60),
             ElevatedButton(
               onPressed: () {},
               child: const Padding(

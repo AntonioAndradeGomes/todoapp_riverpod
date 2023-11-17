@@ -7,12 +7,16 @@ class CommonTextField extends StatelessWidget {
   final String hintText;
   final TextEditingController? controller;
   final int? maxLines;
+  final Widget? suffixIcon;
+  final bool readOnly;
   const CommonTextField({
     super.key,
     required this.title,
     required this.hintText,
     this.controller,
     this.maxLines,
+    this.suffixIcon,
+    this.readOnly = false,
   });
 
   @override
@@ -26,6 +30,7 @@ class CommonTextField extends StatelessWidget {
         ),
         const Gap(10),
         TextField(
+          readOnly: readOnly,
           controller: controller,
           maxLines: maxLines,
           onTapOutside: (event) {
@@ -33,6 +38,7 @@ class CommonTextField extends StatelessWidget {
           },
           decoration: InputDecoration(
             hintText: hintText,
+            suffixIcon: suffixIcon,
           ),
           onChanged: (value) {},
         ),
