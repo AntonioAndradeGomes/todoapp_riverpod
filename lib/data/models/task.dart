@@ -1,6 +1,5 @@
 import 'package:equatable/equatable.dart';
 import 'package:todoapp_riverpod/utils/tasks_keys.dart';
-
 import '../../utils/task_categories.dart';
 
 class Task extends Equatable {
