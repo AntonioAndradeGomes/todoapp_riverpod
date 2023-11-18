@@ -38,6 +38,16 @@ enum TaskCategories {
     Colors.amber,
   );
 
+  static TaskCategories stringToTaskCategory(String name) {
+    try {
+      return TaskCategories.values.firstWhere(
+        (category) => category.name == name,
+      );
+    } catch (e) {
+      return TaskCategories.others;
+    }
+  }
+
   final IconData icon;
   final Color color;
 
