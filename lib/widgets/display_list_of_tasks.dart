@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:todoapp_riverpod/data/data.dart';
+import 'package:todoapp_riverpod/providers/providers.dart';
 import 'package:todoapp_riverpod/utils/utils.dart';
 import 'widgets.dart';
 
-class DisplayListOfTasks extends StatelessWidget {
+class DisplayListOfTasks extends ConsumerWidget {
   final List<Task> tasks;
   final bool isCompletedTasks;
   const DisplayListOfTasks({
@@ -13,7 +15,7 @@ class DisplayListOfTasks extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final deviceSize = context.deviceSize;
     final height =
         isCompletedTasks ? deviceSize.height * 0.25 : deviceSize.height * 0.3;
@@ -37,10 +39,15 @@ class DisplayListOfTasks extends StatelessWidget {
                 final task = tasks[index];
                 return InkWell(
                   onLongPress: () {
-                    //TODO:deletar task
+                    //deletar task
+                    AppAlerts.showDeleteAlertDialog(
+                      context,
+                      ref,
+                      task,
+                    );
                   },
                   onTap: () async {
-                    //TODO: detalhes da task
+                    //detalhes da task
 
                     await showModalBottomSheet(
                       context: context,
@@ -53,6 +60,19 @@ class DisplayListOfTasks extends StatelessWidget {
                   },
                   child: TaskTile(
                     task: task,
+                    onCompleted: (value) async {
+                      await ref
+                          .read(taskProvider.notifier)
+                          .updateTask(task)
+                          .then(
+                            (value) => AppAlerts.displaySnackBar(
+                              context,
+                              task.isCompleted
+                                  ? 'Task incompleted'
+                                  : 'Task completed',
+                            ),
+                          );
+                    },
                   ),
                 );
               },

@@ -22,7 +22,7 @@ class SelectionDateTime extends ConsumerWidget {
             hintText: DateFormat.yMMMd().format(date),
             readOnly: true,
             suffixIcon: IconButton(
-              onPressed: () => _selectDate(
+              onPressed: () => Helpers.selectDate(
                 context,
                 ref,
               ),
@@ -65,23 +65,6 @@ class SelectionDateTime extends ConsumerWidget {
 
     if (pickedTime != null) {
       ref.read(timeProvider.notifier).state = pickedTime;
-    }
-  }
-
-  void _selectDate(
-    BuildContext context,
-    WidgetRef ref,
-  ) async {
-    final initalDate = ref.read(dateProvider);
-    DateTime? pickedDate = await showDatePicker(
-      context: context,
-      initialDate: initalDate,
-      firstDate: DateTime(2020),
-      lastDate: DateTime(2090),
-    );
-
-    if (pickedDate != null) {
-      ref.read(dateProvider.notifier).state = pickedDate;
     }
   }
 }
