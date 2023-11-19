@@ -11,11 +11,23 @@ class TaskNotifier extends StateNotifier<TaskState> {
     this.repository,
   ) : super(
           const TaskState.initial(),
-        );
+        ) {
+    getTasks();
+  }
 
   Future<void> createTask(Task task) async {
     try {
       await repository.createTask(task);
+      getTasks();
+    } catch (e) {
+      debugPrint(e.toString());
+    }
+  }
+
+  Future<void> deleteTask(Task task) async {
+    try {
+      await repository.deleteTask(task);
+      getTasks();
     } catch (e) {
       debugPrint(e.toString());
     }
@@ -27,13 +39,16 @@ class TaskNotifier extends StateNotifier<TaskState> {
       final updatedTask = task.copyWith(
         isCompleted: isCompleted,
       );
-      await repository.updateTask(updatedTask);
+      await repository.updateTask(
+        updatedTask,
+      );
+      getTasks();
     } catch (e) {
       debugPrint(e.toString());
     }
   }
 
-  Future<void> getTasks() async {
+  void getTasks() async {
     try {
       final tasks = await repository.getAllTasks();
       state = state.copyWith(

@@ -4,7 +4,6 @@ import 'package:todoapp_riverpod/utils/tasks_keys.dart';
 @immutable
 class BdKeys {
   const BdKeys._();
-
   static const String dbName = 'task.db';
   static const String dbTable = 'tasks';
   static const String idColumn = TaskKeys.id;

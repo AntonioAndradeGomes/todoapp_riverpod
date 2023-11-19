@@ -39,12 +39,12 @@ class TaskDatasource {
       '''
           CREATE TABLE ${BdKeys.dbTable}(
             ${BdKeys.idColumn} INTEGER PRIMARY KEY AUTOINCREMENT,
-            ${BdKeys.timeColumn} TEXT,
+            ${BdKeys.titleColumn} TEXT,
             ${BdKeys.noteColumn} TEXT,
             ${BdKeys.dateColumn} TEXT,
             ${BdKeys.timeColumn} TEXT,
             ${BdKeys.categoryColumn} TEXT,
-            ${BdKeys.isCompletedColumn} INTEGER,
+            ${BdKeys.isCompletedColumn} INTEGER
           )
       ''',
     );

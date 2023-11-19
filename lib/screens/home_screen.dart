@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 import 'package:todoapp_riverpod/config/routes/routes.dart';
-import 'package:todoapp_riverpod/data/data.dart';
+import 'package:todoapp_riverpod/providers/providers.dart';
 import 'package:todoapp_riverpod/utils/utils.dart';
 import 'package:todoapp_riverpod/widgets/widgets.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends ConsumerWidget {
   static HomeScreen builder(
     BuildContext context,
     GoRouterState state,
@@ -18,9 +19,10 @@ class HomeScreen extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final colors = context.colorScheme;
     final deviceSize = context.deviceSize;
+    final taskState = ref.watch(taskProvider);
     return Scaffold(
       body: Stack(
         children: [
@@ -59,25 +61,8 @@ class HomeScreen extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    const DisplayListOfTasks(
-                      tasks: [
-                        Task(
-                          title: 'title',
-                          note: 'note',
-                          time: 'time',
-                          date: 'date',
-                          isCompleted: false,
-                          category: TaskCategories.work,
-                        ),
-                        Task(
-                          title: 'title',
-                          note: 'note',
-                          time: 'time',
-                          date: 'date',
-                          isCompleted: false,
-                          category: TaskCategories.education,
-                        ),
-                      ],
+                    DisplayListOfTasks(
+                      tasks: taskState.tasks,
                     ),
                     const Gap(20),
                     Text(
@@ -85,30 +70,15 @@ class HomeScreen extends StatelessWidget {
                       style: context.textTheme.headlineMedium,
                     ),
                     const Gap(20),
-                    const DisplayListOfTasks(
-                      tasks: [
-                        Task(
-                          title: 'title',
-                          note: '',
-                          time: 'time',
-                          date: 'date',
-                          isCompleted: true,
-                          category: TaskCategories.work,
-                        ),
-                        Task(
-                          title: 'title',
-                          note: 'note',
-                          time: 'time',
-                          date: 'date',
-                          isCompleted: true,
-                          category: TaskCategories.education,
-                        ),
-                      ],
+                    DisplayListOfTasks(
+                      tasks: taskState.tasks,
                       isCompletedTasks: true,
                     ),
                     const Gap(20),
                     ElevatedButton(
-                      onPressed: () => context.push(RouteLocation.createTask),
+                      onPressed: () => context.push(
+                        RouteLocation.createTask,
+                      ),
                       child: const Padding(
                         padding: EdgeInsets.all(8.0),
                         child: DisplayWhiteText(
