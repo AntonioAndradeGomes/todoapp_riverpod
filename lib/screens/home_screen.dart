@@ -7,6 +7,8 @@ import 'package:todoapp_riverpod/providers/providers.dart';
 import 'package:todoapp_riverpod/utils/utils.dart';
 import 'package:todoapp_riverpod/widgets/widgets.dart';
 
+import '../data/models/models.dart';
+
 class HomeScreen extends ConsumerWidget {
   static HomeScreen builder(
     BuildContext context,
@@ -23,6 +25,10 @@ class HomeScreen extends ConsumerWidget {
     final colors = context.colorScheme;
     final deviceSize = context.deviceSize;
     final taskState = ref.watch(taskProvider);
+    final completedTasks =
+        taskState.tasks.where((element) => element.isCompleted).toList();
+    final incompletedTasks =
+        taskState.tasks.where((element) => !element.isCompleted).toList();
     return Scaffold(
       body: Stack(
         children: [
@@ -62,7 +68,7 @@ class HomeScreen extends ConsumerWidget {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     DisplayListOfTasks(
-                      tasks: taskState.tasks,
+                      tasks: incompletedTasks,
                     ),
                     const Gap(20),
                     Text(
@@ -71,7 +77,7 @@ class HomeScreen extends ConsumerWidget {
                     ),
                     const Gap(20),
                     DisplayListOfTasks(
-                      tasks: taskState.tasks,
+                      tasks: completedTasks,
                       isCompletedTasks: true,
                     ),
                     const Gap(20),
@@ -95,4 +101,10 @@ class HomeScreen extends ConsumerWidget {
       ),
     );
   }
+
+  /* List<Task> _completedTasks(List<Task> tasks) =>
+      tasks.where((element) => element.isCompleted).toList();
+
+  List<Task> _incompletedTasks(List<Task> tasks) =>
+      tasks.where((element) => !element.isCompleted).toList();*/
 }
