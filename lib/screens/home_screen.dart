@@ -25,6 +25,7 @@ class HomeScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final colors = context.colorScheme;
     final deviceSize = context.deviceSize;
+    final top = context.top;
     final taskState = ref.watch(taskProvider);
     final date = ref.watch(dateProvider);
     final completedTasks = _compltedTask(
@@ -45,8 +46,26 @@ class HomeScreen extends ConsumerWidget {
                 width: deviceSize.width,
                 color: colors.primary,
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  //mainAxisAlignment: MainAxisAlignment.center,
                   children: [
+                    Gap(top),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        IconButton(
+                          onPressed: () => context.push(
+                            RouteLocation.settings,
+                          ),
+                          color: colors.primaryContainer,
+                          tooltip: 'Settings',
+                          icon: Icon(
+                            size: 30,
+                            Icons.settings,
+                            color: colors.primaryContainer,
+                          ),
+                        ),
+                      ],
+                    ),
                     InkWell(
                       onTap: () => Helpers.selectDate(context, ref),
                       child: DisplayWhiteText(

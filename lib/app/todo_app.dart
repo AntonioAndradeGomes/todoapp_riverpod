@@ -8,10 +8,13 @@ class TodoApp extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final theme = ref.watch(themeProvider);
     final routeConfig = ref.watch(routesProvider);
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       theme: AppTheme.light,
+      darkTheme: AppTheme.dark,
+      themeMode: theme,
       routerConfig: routeConfig,
     );
   }

@@ -32,6 +32,7 @@ class DisplayListOfTasks extends ConsumerWidget {
               ),
             )
           : ListView.separated(
+              clipBehavior: Clip.hardEdge,
               itemCount: tasks.length,
               shrinkWrap: true,
               padding: EdgeInsets.zero,

@@ -17,7 +17,9 @@ class DisplayWhiteText extends StatelessWidget {
     return Text(
       text,
       style: context.textTheme.headlineSmall?.copyWith(
-        color: context.colorScheme.surface,
+        color: context.colorScheme.brightness == Brightness.light
+            ? context.colorScheme.surface
+            : context.colorScheme.onSurface,
         fontSize: fontSize,
         fontWeight: fontWeight ?? FontWeight.bold,
       ),
