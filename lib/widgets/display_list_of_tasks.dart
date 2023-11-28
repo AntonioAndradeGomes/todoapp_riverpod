@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:todoapp_riverpod/config/l10n/l10n.dart';
 import 'package:todoapp_riverpod/data/data.dart';
 import 'package:todoapp_riverpod/providers/providers.dart';
 import 'package:todoapp_riverpod/utils/utils.dart';
@@ -16,12 +17,13 @@ class DisplayListOfTasks extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = context.l10n;
     final deviceSize = context.deviceSize;
     final height =
         isCompletedTasks ? deviceSize.height * 0.25 : deviceSize.height * 0.3;
     final emptyTasksMessage = isCompletedTasks
-        ? 'There is no completed task yet'
-        : 'There is no task todo!';
+        ? l10n.listTaskTodoCompletedEmpty
+        : l10n.listTaskTodoEmpty;
     return CommonContainer(
       height: height,
       child: tasks.isEmpty

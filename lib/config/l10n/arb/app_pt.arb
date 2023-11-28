@@ -1,0 +1,7 @@
+{
+    "titleHomePage":"Minha Lista de Tarefas",
+    "listTaskTodoEmpty": "Não há tarefa a fazer!",
+    "listTaskTodoCompletedEmpty": "Ainda não há tarefa concluída!",
+    "addNewTask": "Adicionar Nova Tarefa",
+    "completed" : "Completas"
+}

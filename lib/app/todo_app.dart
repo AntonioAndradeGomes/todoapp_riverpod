@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:todoapp_riverpod/config/config.dart';
+import 'package:todoapp_riverpod/config/l10n/arb/app_localizations.dart';
 
 //MainApp
 class TodoApp extends ConsumerWidget {
@@ -11,6 +12,8 @@ class TodoApp extends ConsumerWidget {
     final theme = ref.watch(themeProvider);
     final routeConfig = ref.watch(routesProvider);
     return MaterialApp.router(
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
       debugShowCheckedModeBanner: false,
       theme: AppTheme.light,
       darkTheme: AppTheme.dark,

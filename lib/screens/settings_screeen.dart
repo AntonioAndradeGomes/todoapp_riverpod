@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:todoapp_riverpod/config/config.dart';
 import 'package:todoapp_riverpod/utils/extensions.dart';
+import 'package:todoapp_riverpod/widgets/display_white_text.dart';
 
 class SettingsScreeen extends ConsumerWidget {
   static SettingsScreeen builder(
@@ -20,7 +21,9 @@ class SettingsScreeen extends ConsumerWidget {
     final theme = ref.watch(themeProvider);
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Settings'),
+        title: const DisplayWhiteText(
+          text: 'Settings',
+        ),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20),

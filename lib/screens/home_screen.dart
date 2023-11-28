@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
+import 'package:todoapp_riverpod/config/l10n/l10n.dart';
 import 'package:todoapp_riverpod/config/routes/routes.dart';
 import 'package:todoapp_riverpod/providers/providers.dart';
 import 'package:todoapp_riverpod/utils/utils.dart';
@@ -23,6 +24,7 @@ class HomeScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = context.l10n;
     final colors = context.colorScheme;
     final deviceSize = context.deviceSize;
     final top = context.top;
@@ -74,8 +76,8 @@ class HomeScreen extends ConsumerWidget {
                         fontWeight: FontWeight.normal,
                       ),
                     ),
-                    const DisplayWhiteText(
-                      text: 'My Todo List',
+                    DisplayWhiteText(
+                      text: l10n.titleHomePage,
                       fontSize: 40,
                     ),
                   ],
@@ -100,7 +102,7 @@ class HomeScreen extends ConsumerWidget {
                     ),
                     const Gap(20),
                     Text(
-                      'Completed',
+                      l10n.completed,
                       style: context.textTheme.headlineMedium,
                     ),
                     const Gap(20),
@@ -113,10 +115,10 @@ class HomeScreen extends ConsumerWidget {
                       onPressed: () => context.push(
                         RouteLocation.createTask,
                       ),
-                      child: const Padding(
-                        padding: EdgeInsets.all(8.0),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
                         child: DisplayWhiteText(
-                          text: 'Add New Task',
+                          text: l10n.addNewTask,
                         ),
                       ),
                     ),

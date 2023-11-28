@@ -1,0 +1,7 @@
+{
+    "titleHomePage":"My Todo List",
+    "listTaskTodoEmpty": "There is no task todo!",
+    "listTaskTodoCompletedEmpty": "There is no completed task yet!",
+    "addNewTask": "Add New Task",
+    "completed" : "Completed"
+}
