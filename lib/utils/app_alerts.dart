@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:todoapp_riverpod/config/l10n/l10n.dart';
 import 'package:todoapp_riverpod/data/models/models.dart';
 import 'package:todoapp_riverpod/providers/providers.dart';
 import 'package:todoapp_riverpod/utils/extensions.dart';
@@ -30,10 +31,11 @@ class AppAlerts {
     WidgetRef ref,
     Task task,
   ) async {
+    final l10n = context.l10n;
     Widget cancelButton = TextButton(
       onPressed: () => context.pop(),
-      child: const Text(
-        'No',
+      child: Text(
+        l10n.no,
       ),
     );
     Widget deleteButton = TextButton(
@@ -41,18 +43,18 @@ class AppAlerts {
         await ref.read(taskProvider.notifier).deleteTask(task).then((value) {
           AppAlerts.displaySnackBar(
             context,
-            'Task delete successfully',
+            l10n.delete,
           );
           context.pop();
         });
       },
-      child: const Text(
-        'Yes',
+      child: Text(
+        l10n.yes,
       ),
     );
     AlertDialog alert = AlertDialog.adaptive(
-      title: const Text(
-        'Are you sure you want to delete this task?',
+      title: Text(
+        l10n.question,
       ),
       actions: [
         deleteButton,

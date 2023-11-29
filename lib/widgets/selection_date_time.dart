@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gap/gap.dart';
+import 'package:todoapp_riverpod/config/l10n/l10n.dart';
 import 'package:todoapp_riverpod/providers/providers.dart';
 import 'package:todoapp_riverpod/utils/utils.dart';
 import 'package:todoapp_riverpod/widgets/common_text_field.dart';
@@ -14,11 +15,12 @@ class SelectionDateTime extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final date = ref.watch(dateProvider);
     final time = ref.watch(timeProvider);
+    final l10n = context.l10n;
     return Row(
       children: [
         Expanded(
           child: CommonTextField(
-            title: 'Date',
+            title: l10n.date,
             hintText: DateFormat.yMMMd().format(date),
             readOnly: true,
             suffixIcon: IconButton(
@@ -35,7 +37,7 @@ class SelectionDateTime extends ConsumerWidget {
         const Gap(10),
         Expanded(
           child: CommonTextField(
-            title: 'Time',
+            title: l10n.time,
             hintText: Helpers.timeToString(time),
             readOnly: true,
             suffixIcon: IconButton(

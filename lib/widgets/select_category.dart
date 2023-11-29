@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
+import 'package:todoapp_riverpod/config/l10n/l10n.dart';
 import 'package:todoapp_riverpod/providers/providers.dart';
 import 'package:todoapp_riverpod/utils/extensions.dart';
 import 'package:todoapp_riverpod/utils/task_categories.dart';
@@ -13,12 +14,13 @@ class SelectCategory extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final categories = TaskCategories.values.toList();
     final selectedCategory = ref.watch(categoryProvider);
+    final l10n = context.l10n;
     return SizedBox(
       height: 60,
       child: Row(
         children: [
           Text(
-            'Category',
+            l10n.category,
             style: context.textTheme.titleLarge,
           ),
           const Gap(10),

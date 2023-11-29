@@ -71,8 +71,8 @@ class DisplayListOfTasks extends ConsumerWidget {
                             (value) => AppAlerts.displaySnackBar(
                               context,
                               task.isCompleted
-                                  ? 'Task incompleted'
-                                  : 'Task completed',
+                                  ? l10n.incompleted
+                                  : l10n.completed,
                             ),
                           );
                     },

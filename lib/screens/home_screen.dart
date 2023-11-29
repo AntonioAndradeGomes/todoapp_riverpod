@@ -59,7 +59,7 @@ class HomeScreen extends ConsumerWidget {
                             RouteLocation.settings,
                           ),
                           color: colors.primaryContainer,
-                          tooltip: 'Settings',
+                          tooltip: l10n.settings,
                           icon: Icon(
                             size: 30,
                             Icons.settings,

@@ -120,8 +120,146 @@ abstract class AppLocalizations {
   /// No description provided for @completed.
   ///
   /// In en, this message translates to:
-  /// **'Completed'**
+  /// **'Task completed'**
   String get completed;
+
+  /// No description provided for @settings.
+  ///
+  /// In en, this message translates to:
+  /// **'Settings'**
+  String get settings;
+
+  /// No description provided for @incompleted.
+  ///
+  /// In en, this message translates to:
+  /// **'Task incompleted'**
+  String get incompleted;
+
+  /// No description provided for @toBeCompleted.
+  ///
+  /// In en, this message translates to:
+  /// **'Task to be completed on '**
+  String get toBeCompleted;
+
+  /// No description provided for @additionalNote.
+  ///
+  /// In en, this message translates to:
+  /// **'There is no additional note for this task'**
+  String get additionalNote;
+
+  /// No description provided for @delete.
+  ///
+  /// In en, this message translates to:
+  /// **'Task delete successfully'**
+  String get delete;
+
+  /// No description provided for @question.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to delete this task?'**
+  String get question;
+
+  /// No description provided for @yes.
+  ///
+  /// In en, this message translates to:
+  /// **'Yes'**
+  String get yes;
+
+  /// No description provided for @no.
+  ///
+  /// In en, this message translates to:
+  /// **'No'**
+  String get no;
+
+  /// No description provided for @category.
+  ///
+  /// In en, this message translates to:
+  /// **'Category'**
+  String get category;
+
+  /// No description provided for @date.
+  ///
+  /// In en, this message translates to:
+  /// **'Date'**
+  String get date;
+
+  /// No description provided for @time.
+  ///
+  /// In en, this message translates to:
+  /// **'Time'**
+  String get time;
+
+  /// No description provided for @defineTheme.
+  ///
+  /// In en, this message translates to:
+  /// **'Define Theme:'**
+  String get defineTheme;
+
+  /// No description provided for @defaultTheme.
+  ///
+  /// In en, this message translates to:
+  /// **'System default'**
+  String get defaultTheme;
+
+  /// No description provided for @dark.
+  ///
+  /// In en, this message translates to:
+  /// **'Dark'**
+  String get dark;
+
+  /// No description provided for @light.
+  ///
+  /// In en, this message translates to:
+  /// **'Ligth'**
+  String get light;
+
+  /// No description provided for @title.
+  ///
+  /// In en, this message translates to:
+  /// **'Title'**
+  String get title;
+
+  /// No description provided for @titleTask.
+  ///
+  /// In en, this message translates to:
+  /// **'Task title'**
+  String get titleTask;
+
+  /// No description provided for @note.
+  ///
+  /// In en, this message translates to:
+  /// **'Note'**
+  String get note;
+
+  /// No description provided for @noteTask.
+  ///
+  /// In en, this message translates to:
+  /// **'Task note'**
+  String get noteTask;
+
+  /// No description provided for @save.
+  ///
+  /// In en, this message translates to:
+  /// **'Save'**
+  String get save;
+
+  /// No description provided for @created.
+  ///
+  /// In en, this message translates to:
+  /// **'Task created Successfully'**
+  String get created;
+
+  /// No description provided for @alertTaskNoCreated.
+  ///
+  /// In en, this message translates to:
+  /// **'Task title cannot be empty'**
+  String get alertTaskNoCreated;
+
+  /// No description provided for @selectLanguage.
+  ///
+  /// In en, this message translates to:
+  /// **'Select language'**
+  String get selectLanguage;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

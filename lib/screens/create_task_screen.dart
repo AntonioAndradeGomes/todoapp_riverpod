@@ -37,10 +37,11 @@ class _CreateTaskScreenState extends ConsumerState<CreateTaskScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
     return Scaffold(
       appBar: AppBar(
-        title: const DisplayWhiteText(
-          text: 'Add New Task',
+        title: DisplayWhiteText(
+          text: l10n.addNewTask,
         ),
       ),
       body: SafeArea(
@@ -51,8 +52,8 @@ class _CreateTaskScreenState extends ConsumerState<CreateTaskScreen> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               CommonTextField(
-                hintText: 'Title',
-                title: 'Task title',
+                hintText: l10n.title,
+                title: l10n.titleTask,
                 controller: _titleController,
               ),
               const Gap(16),
@@ -61,18 +62,18 @@ class _CreateTaskScreenState extends ConsumerState<CreateTaskScreen> {
               const SelectionDateTime(),
               const Gap(16),
               CommonTextField(
-                hintText: 'Note',
-                title: 'Task note',
+                hintText: l10n.note,
+                title: l10n.noteTask,
                 maxLines: 6,
                 controller: _noteController,
               ),
               const Gap(50),
               ElevatedButton(
                 onPressed: _create,
-                child: const Padding(
-                  padding: EdgeInsets.all(8.0),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
                   child: DisplayWhiteText(
-                    text: 'Save',
+                    text: l10n.save,
                   ),
                 ),
               ),
@@ -109,7 +110,7 @@ class _CreateTaskScreenState extends ConsumerState<CreateTaskScreen> {
         (value) {
           AppAlerts.displaySnackBar(
             context,
-            'Task created Successfully',
+            context.l10n.created,
           );
           context.go(
             RouteLocation.home,
@@ -119,7 +120,7 @@ class _CreateTaskScreenState extends ConsumerState<CreateTaskScreen> {
     } else {
       AppAlerts.displaySnackBar(
         context,
-        'Task title cannot be empty',
+        context.l10n.alertTaskNoCreated,
       );
     }
   }

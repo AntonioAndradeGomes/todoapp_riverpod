@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:todoapp_riverpod/config/l10n/l10n.dart';
 import 'package:todoapp_riverpod/utils/extensions.dart';
 import 'package:todoapp_riverpod/widgets/widgets.dart';
 import '../data/models/models.dart';
@@ -13,6 +14,7 @@ class TaskDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
     final styles = context.textTheme;
     return Padding(
       padding: const EdgeInsets.all(30),
@@ -43,8 +45,8 @@ class TaskDetails extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text(
-                  'Task to be completed on ',
+                Text(
+                  l10n.toBeCompleted,
                 ),
                 Text(
                   task.date,
@@ -63,20 +65,18 @@ class TaskDetails extends StatelessWidget {
           ),
           const Gap(16),
           Text(
-            task.note.isEmpty
-                ? 'There is no additional note for this task'
-                : task.note,
+            task.note.isEmpty ? l10n.additionalNote : task.note,
           ),
           const Gap(16),
           Visibility(
             visible: task.isCompleted,
-            child: const Row(
+            child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'task completed',
+                  l10n.completed,
                 ),
-                Icon(
+                const Icon(
                   Icons.check_box,
                   color: Colors.green,
                 ),
