@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:todoapp_riverpod/config/l10n/l10n.dart';
 import 'package:todoapp_riverpod/utils/extensions.dart';
@@ -17,7 +18,7 @@ class TaskDetails extends StatelessWidget {
     final l10n = context.l10n;
     final styles = context.textTheme;
     return Padding(
-      padding: const EdgeInsets.all(30),
+      padding: const EdgeInsets.all(30).h,
       child: Column(
         children: [
           CircleContainer(
@@ -27,19 +28,19 @@ class TaskDetails extends StatelessWidget {
               color: task.category.color,
             ),
           ),
-          const Gap(16),
+          Gap(16.h),
           Text(
             task.title,
             style: styles.titleMedium?.copyWith(
               fontWeight: FontWeight.bold,
-              fontSize: 20,
+              fontSize: 20.sp,
             ),
           ),
           Text(
             task.time,
             style: styles.titleMedium,
           ),
-          const Gap(16),
+          Gap(16.h),
           Visibility(
             visible: !task.isCompleted,
             child: Row(
@@ -58,16 +59,16 @@ class TaskDetails extends StatelessWidget {
               ],
             ),
           ),
-          const Gap(16),
+          Gap(16.h),
           Divider(
             thickness: 1.5,
             color: task.category.color,
           ),
-          const Gap(16),
+          Gap(16.h),
           Text(
             task.note.isEmpty ? l10n.additionalNote : task.note,
           ),
-          const Gap(16),
+          Gap(16.h),
           Visibility(
             visible: task.isCompleted,
             child: Row(

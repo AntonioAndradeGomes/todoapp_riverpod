@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:todoapp_riverpod/config/l10n/l10n.dart';
 import 'package:todoapp_riverpod/config/l10n/providers/applocale_provider.dart';
 import 'package:todoapp_riverpod/utils/utils.dart';
@@ -22,11 +23,13 @@ class LanguageSelector extends ConsumerWidget {
         ),
         DropdownButton<Locale>(
           value: selectedLanguage,
-          icon: const Icon(Icons.language),
+          icon: const Icon(
+            Icons.language,
+          ),
           isDense: true,
           elevation: 0,
           alignment: Alignment.center,
-          iconSize: 25,
+          iconSize: 30.h,
           dropdownColor: context.colorScheme.secondary,
           items: _getSupportedLocale
               .map<DropdownMenuItem<Locale>>(
@@ -34,13 +37,21 @@ class LanguageSelector extends ConsumerWidget {
                   value: e,
                   child: Text(
                     e.languageCode.toUpperCase(),
+                    style: context.textTheme.titleMedium?.copyWith(
+                      fontWeight: FontWeight.w500,
+                      fontSize: 18.sp,
+                    ),
                   ),
                 ),
               )
               .toList(),
           onChanged: (value) {
             if (value != null) {
-              ref.read(appLocaleProvider.notifier).setLocale(value);
+              ref
+                  .read(
+                    appLocaleProvider.notifier,
+                  )
+                  .setLocale(value);
             }
           },
         ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:todoapp_riverpod/utils/extensions.dart';
 
@@ -28,7 +29,7 @@ class CommonTextField extends StatelessWidget {
           title,
           style: context.textTheme.titleLarge,
         ),
-        const Gap(10),
+        Gap(10.h),
         TextField(
           readOnly: readOnly,
           controller: controller,

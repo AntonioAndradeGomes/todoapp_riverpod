@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:todoapp_riverpod/config/config.dart';
 import 'package:todoapp_riverpod/utils/utils.dart';
 
@@ -9,7 +10,6 @@ class ThemeSelector extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = ref.watch(themeProvider);
-
     final l10n = context.l10n;
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -20,11 +20,13 @@ class ThemeSelector extends ConsumerWidget {
         ),
         DropdownButton<ThemeMode>(
           value: theme,
-          icon: const Icon(Icons.color_lens_sharp),
+          icon: const Icon(
+            Icons.color_lens_sharp,
+          ),
           isDense: true,
           elevation: 0,
           alignment: Alignment.center,
-          iconSize: 25,
+          iconSize: 30.h,
           dropdownColor: context.colorScheme.secondary,
           items: [
             DropdownMenuItem<ThemeMode>(
@@ -32,8 +34,8 @@ class ThemeSelector extends ConsumerWidget {
               child: Text(
                 l10n.defaultTheme,
                 style: context.textTheme.titleMedium?.copyWith(
-                  //color: context.colorScheme.tertiary,
                   fontWeight: FontWeight.w500,
+                  fontSize: 18.sp,
                 ),
               ),
             ),
@@ -42,8 +44,8 @@ class ThemeSelector extends ConsumerWidget {
               child: Text(
                 l10n.dark,
                 style: context.textTheme.titleMedium?.copyWith(
-                  // color: context.colorScheme.tertiary,
                   fontWeight: FontWeight.w500,
+                  fontSize: 18.sp,
                 ),
               ),
             ),
@@ -52,18 +54,20 @@ class ThemeSelector extends ConsumerWidget {
               child: Text(
                 l10n.light,
                 style: context.textTheme.titleMedium?.copyWith(
-                  // color: context.colorScheme.tertiary,
                   fontWeight: FontWeight.w500,
+                  fontSize: 18.sp,
                 ),
               ),
             ),
           ],
-          onChanged: (ThemeMode? value) {
-            ref
-                .read(
-                  themeProvider.notifier,
-                )
-                .changeTheme(value!);
+          onChanged: (value) {
+            if (value != null) {
+              ref
+                  .read(
+                    themeProvider.notifier,
+                  )
+                  .changeTheme(value);
+            }
           },
         ),
       ],

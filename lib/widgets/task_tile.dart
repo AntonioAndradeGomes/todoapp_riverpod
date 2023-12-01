@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:todoapp_riverpod/data/data.dart';
 import 'package:todoapp_riverpod/utils/extensions.dart';
@@ -26,7 +27,7 @@ class TaskTile extends StatelessWidget {
         left: 16,
         top: 10,
         bottom: 10,
-      ),
+      ).h,
       child: Row(
         children: [
           CircleContainer(
@@ -36,7 +37,7 @@ class TaskTile extends StatelessWidget {
               color: task.category.color.withOpacity(iconOpacity),
             ),
           ),
-          const Gap(16),
+          Gap(16.w),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -45,7 +46,7 @@ class TaskTile extends StatelessWidget {
                   task.title,
                   style: context.textTheme.titleMedium?.copyWith(
                     decoration: textDecoration,
-                    fontSize: 20,
+                    fontSize: 20.sp,
                     fontWeight: fontWeight,
                   ),
                 ),

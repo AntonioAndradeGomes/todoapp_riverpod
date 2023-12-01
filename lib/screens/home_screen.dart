@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
@@ -44,8 +45,8 @@ class HomeScreen extends ConsumerWidget {
           Column(
             children: [
               Container(
-                height: deviceSize.height * 0.3,
-                width: deviceSize.width,
+                height: (deviceSize.height * 0.35).h,
+                width: (deviceSize.width).w,
                 color: colors.primary,
                 child: Column(
                   //mainAxisAlignment: MainAxisAlignment.center,
@@ -61,7 +62,7 @@ class HomeScreen extends ConsumerWidget {
                           color: colors.primaryContainer,
                           tooltip: l10n.settings,
                           icon: Icon(
-                            size: 30,
+                            size: 30.h,
                             Icons.settings,
                             color: colors.primaryContainer,
                           ),
@@ -72,13 +73,13 @@ class HomeScreen extends ConsumerWidget {
                       onTap: () => Helpers.selectDate(context, ref),
                       child: DisplayWhiteText(
                         text: DateFormat.yMMMd().format(date),
-                        fontSize: 20,
+                        fontSize: 20.sp,
                         fontWeight: FontWeight.normal,
                       ),
                     ),
                     DisplayWhiteText(
                       text: l10n.titleHomePage,
-                      fontSize: 40,
+                      fontSize: 35.sp,
                     ),
                   ],
                 ),
@@ -86,7 +87,7 @@ class HomeScreen extends ConsumerWidget {
             ],
           ),
           Positioned(
-            top: 140,
+            top: 135.h,
             left: 0,
             right: 0,
             bottom: 0,
@@ -100,23 +101,23 @@ class HomeScreen extends ConsumerWidget {
                     DisplayListOfTasks(
                       tasks: incompletedTasks,
                     ),
-                    const Gap(20),
+                    Gap(20.h),
                     Text(
                       l10n.completed,
                       style: context.textTheme.headlineMedium,
                     ),
-                    const Gap(20),
+                    Gap(20.h),
                     DisplayListOfTasks(
                       tasks: completedTasks,
                       isCompletedTasks: true,
                     ),
-                    const Gap(20),
+                    Gap(20.h),
                     ElevatedButton(
                       onPressed: () => context.push(
                         RouteLocation.createTask,
                       ),
                       child: Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: const EdgeInsets.all(8).h,
                         child: DisplayWhiteText(
                           text: l10n.addNewTask,
                         ),

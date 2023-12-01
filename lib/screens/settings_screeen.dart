@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 import 'package:todoapp_riverpod/config/config.dart';
-import 'package:todoapp_riverpod/widgets/theme_selector.dart';
+
 import '../widgets/widgets.dart';
 
 class SettingsScreeen extends ConsumerWidget {
@@ -26,13 +27,13 @@ class SettingsScreeen extends ConsumerWidget {
           text: l10n.settings,
         ),
       ),
-      body: const SingleChildScrollView(
-        padding: EdgeInsets.all(20),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.all(20).h,
         child: Column(
           children: [
-            ThemeSelector(),
-            Gap(15),
-            LanguageSelector(),
+            const ThemeSelector(),
+            Gap(15.h),
+            const LanguageSelector(),
           ],
         ),
       ),

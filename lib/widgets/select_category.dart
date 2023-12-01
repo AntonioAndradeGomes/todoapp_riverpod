@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:todoapp_riverpod/config/l10n/l10n.dart';
 import 'package:todoapp_riverpod/providers/providers.dart';
@@ -16,18 +17,19 @@ class SelectCategory extends ConsumerWidget {
     final selectedCategory = ref.watch(categoryProvider);
     final l10n = context.l10n;
     return SizedBox(
-      height: 60,
+      height: 60.h,
       child: Row(
         children: [
           Text(
             l10n.category,
             style: context.textTheme.titleLarge,
           ),
-          const Gap(10),
+          Gap(10.w),
           Expanded(
             child: ListView.separated(
               physics: const AlwaysScrollableScrollPhysics(),
               scrollDirection: Axis.horizontal,
+              padding: const EdgeInsets.only(right: 15).w,
               itemBuilder: (_, index) {
                 final category = categories[index];
                 return InkWell(
@@ -47,7 +49,7 @@ class SelectCategory extends ConsumerWidget {
                 );
               },
               separatorBuilder: (_, index) {
-                return const Gap(8);
+                return Gap(8.w);
               },
               itemCount: categories.length,
             ),

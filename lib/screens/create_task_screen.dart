@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
@@ -47,7 +48,7 @@ class _CreateTaskScreenState extends ConsumerState<CreateTaskScreen> {
       body: SafeArea(
         child: SingleChildScrollView(
           physics: const AlwaysScrollableScrollPhysics(),
-          padding: const EdgeInsets.all(20),
+          padding: const EdgeInsets.all(20).h,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
@@ -56,22 +57,22 @@ class _CreateTaskScreenState extends ConsumerState<CreateTaskScreen> {
                 title: l10n.titleTask,
                 controller: _titleController,
               ),
-              const Gap(16),
+              Gap(16.h),
               const SelectCategory(),
-              const Gap(16),
+              Gap(16.h),
               const SelectionDateTime(),
-              const Gap(16),
+              Gap(16.h),
               CommonTextField(
                 hintText: l10n.note,
                 title: l10n.noteTask,
                 maxLines: 6,
                 controller: _noteController,
               ),
-              const Gap(50),
+              Gap(40.h),
               ElevatedButton(
                 onPressed: _create,
                 child: Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(8).h,
                   child: DisplayWhiteText(
                     text: l10n.save,
                   ),

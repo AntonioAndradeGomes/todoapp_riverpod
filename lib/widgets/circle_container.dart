@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CircleContainer extends StatelessWidget {
   final Color color;
@@ -12,7 +13,7 @@ class CircleContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(10),
+      padding: const EdgeInsets.all(10).h,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
         color: color,

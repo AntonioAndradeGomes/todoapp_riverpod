@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gap/gap.dart';
 import 'package:todoapp_riverpod/config/l10n/l10n.dart';
@@ -34,7 +35,7 @@ class SelectionDateTime extends ConsumerWidget {
             ),
           ),
         ),
-        const Gap(10),
+        Gap(10.w),
         Expanded(
           child: CommonTextField(
             title: l10n.time,

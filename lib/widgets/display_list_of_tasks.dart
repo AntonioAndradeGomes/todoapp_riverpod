@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:todoapp_riverpod/config/l10n/l10n.dart';
 import 'package:todoapp_riverpod/data/data.dart';
 import 'package:todoapp_riverpod/providers/providers.dart';
@@ -25,7 +26,7 @@ class DisplayListOfTasks extends ConsumerWidget {
         ? l10n.listTaskTodoCompletedEmpty
         : l10n.listTaskTodoEmpty;
     return CommonContainer(
-      height: height,
+      height: height.h,
       child: tasks.isEmpty
           ? Center(
               child: Text(
